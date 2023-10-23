@@ -1,38 +1,296 @@
-.App {
-  text-align: center;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  /* background: linear-gradient(
+      90deg,
+      rgba(48, 16, 255, 1) 0%,
+      rgba(100, 115, 255, 1) 100%
+      
+    ); */
+  background: url(../public/bigsur.jpg);
+  background-repeat: no-repeat;
+  /* background-size: 220%; */
+  height: 100vh;
+  overflow: hidden;
+  background-position: center;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.todo-app {
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
+  min-width: 300px;
+  max-width: 700px;
+  min-height: 600px;
+  /* max-height:700px; */
+  background: #161a2bcc;
+  /* background:rgba(0, 0, 0, 0.53); */
+  text-align: center;
+  margin: 100px auto;
+  border-radius: 10px;
+  /* scroll-behavior: auto; */
+  /* padding-bottom: 2px; */
+}
+
+h1 {
+  margin: 32px 0;
+  color: #fff;
+  font-size: 25px;
+}
+h2 {
+  margin: 32px 0;
+  color: #fff;
+  font-size: 14px;
+}
+h4 {
+  margin: 32px 0;
+  color: #fff;
+  font-size: 24px;
+}
+
+.complete {
+  text-decoration: line-through;
+  opacity: 0.3;
+  /* background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.456) 0%,
+    rgba(0, 0, 0, 0.387) 100%
+  ); */
+}
+
+.todo-form {
+  margin-bottom: 22px;
+}
+
+.todo-input {
+  padding: 14px 32px 14px 16px;
+  border-radius: 4px;
+  /* border-radius: 4px 0 0 4px; */
+  border: 2px solid #5d0cff;
+  outline: none;
+  width: 300px;
+  background: transparent;
+  color: #fff;
+}
+
+.todo-input::placeholder {
+  color: #e2e2e2;
+}
+.navbar {
+  display: flex;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  margin: 0 50px;
+  /* margin-right: 50px; */
+}
+.navbar-links {
+  display: flex;
+  justify-content: space-between;
+  /* border: 1px solid #fff; */
+  width: 150px;
+}
+.navbar-l {
+  color: #fff;
+  /* border:2px solid #fff; */
+  display: inline-block;
+  padding: 11px;
+  border-radius: 8px;
+  background-color: #67a5;
+}
+.navbar-link {
+  color: #5d7db8;
+}
+.navbar-l:hover {
+  background: linear-gradient(
+    90deg,
+    rgba(93, 12, 255, 1) 0%,
+    rgba(155, 0, 250, 1) 100%
+  );
+}
+.active {
+  background: linear-gradient(
+    90deg,
+    rgba(93, 12, 255, 1) 0%,
+    rgba(155, 0, 250, 1) 100%
+  );
+}
+.forget {
+  color: #fff;
+  background: transparent;
+  border: none;
+  padding: 11px;
+  border-radius: 8px;
+  font-size: 14px;
+}
+.forget:hover {
+  color: rgb(88, 120, 170);
+}
+.todo-button {
+  padding: 16px;
+  border: none;
+  width: 100px;
+  border-radius: 4px;
+  cursor: pointer;
+  outline: none;
+  background: linear-gradient(
+    90deg,
+    rgb(178, 36, 142) 0%,
+    rgba(155, 0, 250, 1) 100%
+  );
+  color: #fff;
+  text-transform: capitalize;
+}
+.todo-button:hover {
+  background: linear-gradient(
+    90deg,
+    rgba(85, 5, 244, 0.619) 0%,
+    rgba(154, 0, 250, 0.41) 100%
+  );
+}
+.login-button {
+  padding: 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  outline: none;
+  background: linear-gradient(90deg, rgb(215, 37, 37) 0%, rgb(66, 73, 87) 100%);
+  color: #fff;
+  text-transform: capitalize;
 }
 
-.App-link {
-  color: #61dafb;
+.todo-input.edit {
+  border: 2px solid #149fff;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.todo-button.edit {
+  background: linear-gradient(
+    90deg,
+    rgba(20, 159, 255, 1) 0%,
+    rgba(17, 122, 255, 1) 100%
+  );
+  padding: 16px 22px;
+}
+
+.todo-container {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+}
+
+.todo-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px auto;
+  /* padding: 5px; */
+  color: #fff;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 118, 20, 1) 0%,
+    rgba(255, 84, 17, 1) 100%
+  );
+
+  padding: 16px;
+  font-size: larger;
+  font-weight: 500;
+  border-radius: 5px;
+  width: 90%;
+  cursor: pointer;
+}
+.todo-row:hover {
+  background: linear-gradient(
+    90deg,
+    rgb(235, 119, 36) 0%,
+    rgb(226, 64, 0) 100%
+  );
+}
+.todo-row:nth-child(4n + 1) {
+  background: linear-gradient(
+    90deg,
+    rgba(93, 12, 255, 1) 0%,
+    rgba(155, 0, 250, 1) 100%
+  );
+}
+
+.todo-row:nth-child(4n + 2) {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 12, 241, 1) 0%,
+    rgba(250, 0, 135, 1) 100%
+  );
+}
+
+.todo-row:nth-child(4n + 3) {
+  background: linear-gradient(
+    90deg,
+    rgba(20, 159, 255, 1) 0%,
+    rgba(17, 122, 255, 1) 100%
+  );
+}
+.todo-row:nth-child(4n + 1):hover {
+  background: linear-gradient(90deg, rgb(85, 0, 255) 0%, rgb(110, 3, 177) 100%);
+}
+
+.todo-row:nth-child(4n + 2):hover {
+  background: linear-gradient(90deg, rgb(225, 0, 213) 0%, rgb(148, 3, 80) 100%);
+}
+
+.todo-row:nth-child(4n + 3):hover {
+  background: linear-gradient(90deg, rgb(0, 127, 218) 0%, rgb(3, 87, 195) 100%);
+}
+.icons {
+  display: flex;
+  align-items: center;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.delete-icon {
+  margin-right: 5px;
+  color: #ffffff;
+}
+.delete-icon:hover {
+  margin-right: 5px;
+  color: #a00000;
+  /* background: #0000006c; */
+  width: 1005;
+}
+.logout-icon {
+  color: red;
+}
+.edit-icon {
+  color: #fff;
+}
+.login-value {
+  padding: 20px;
+}
+.logout {
+  margin: 2px;
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+}
+.position {
+  /* margin-left: 70px; */
+  height: 45px;
+  margin-top: 25px;
+}
+.contain {
+  /* height: 362px; */
+  /* min-height: 200px; */
+  max-height: 495px;
+  /* height: max(362px, 495px); */
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.contain::-webkit-scrollbar {
+  display: none;
 }
