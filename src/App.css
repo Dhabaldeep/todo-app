@@ -284,12 +284,12 @@ h4 {
 .contain {
   /* height: 362px; */
   /* min-height: 200px; */
-  max-height: 495px;
-  /* height: max(362px, 495px); */
+  /* max-height: 480px; */
+  height: max(362px, 480px);
   overflow-y: scroll;
   scroll-behavior: smooth;
-  -ms-overflow-style: none;
-  scrollbar-width: none;
+  /* -ms-overflow-style: none; */
+  /* scrollbar-width: none; */
 }
 .contain::-webkit-scrollbar {
   display: none;
